@@ -1,0 +1,31 @@
+<% layout('layout/page')%>
+    <link rel="stylesheet" href="/css/exercises.css">
+
+    <div class="container">
+        <div>
+            <a class="btn" href="/exercises" style="color:white;">
+                <span>&#8592;</span> Back</a>
+            <h2 class=" text-center">Exercises</h2>
+
+            <% for(let e of exercises) { %>
+                <div class=" card m-3">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <%=e.name%>
+                        </h4>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <hr>
+                            Body part: <%=e.category%>
+                        </h6>
+                        <p class="card-text">
+                            <%=e.description%>
+                        </p>
+                        <p class="card-text text-muted">
+                            by <%=e.author.username%>
+                        </p>
+                    </div>
+
+                </div>
+                <% }%>
+        </div>
+    </div>

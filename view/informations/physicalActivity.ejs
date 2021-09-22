@@ -1,0 +1,189 @@
+<% layout('layout/page')%>
+    <div class="container d-flex justify-content-center align-items-center mt-5">
+        <div class="row">
+            <div class=" col-md-6 offset-md-3 col-xl-6 offset-xl-3 mb-5">
+                <div class=" card shadow">
+                    <div class="card-body">
+                        <h3 class="card-title ">
+                            Estimated overall level of physical activity:</h3>
+                        <div class="d-flex display-inline  ">
+                            <button onclick="myFunction1()" class="btn btn-info m-1" style="width:100%">More
+                                Accurate</button>
+                            <button onclick="myFunction2()" class="btn btn-info m-1" style="width:100%">Much
+                                Faster</button>
+                        </div>
+                        <div id="accurate" style="display: block;">
+                            <form action="/physicalActivity" id="validForm" method="POST">
+                                <input type="text" name="fastOrAccurate" id="fastOrAccurate" value="first"
+                                    style="display: none;">
+                                <div class="form-group">
+                                    <label for="sleep">Sleeping hours:</label>
+                                    <input type="text" class="form-control" id="sleep" name="sleep">
+                                </div>
+                                <div class="form-group">
+                                    <label for="work">Professional activities hours:</label>
+                                    <input type="text" class="form-control" id="work" name="work">
+                                </div>
+                                <h3>Rate your physical effort at work:</h3>
+                                <div class="form-check">
+                                    <label class="label" for="low">
+                                        Low effort (intellectual, sedentary, automated work)
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="effortWork" id="low" value="low">
+                                </div>
+                                <div class="form-check">
+                                    <label class="label" for="medium">
+                                        Medium effort (light industry)
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="effortWork" id="medium"
+                                        value="medium">
+                                </div>
+                                <div class="form-check">
+                                    <label class="label" for="high">
+                                        High effort (construction, some industries)
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="effortWork" id="high"
+                                        value="high">
+                                </div>
+                                <div class="form-check mb-3">
+                                    <label class="label" for="veryHigh">
+                                        Very high effort (miners, diggers, athletes etc)
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="effortWork" id="veryHigh"
+                                        value="veryHigh">
+                                </div>
+                                <div class="form-group" style="display: none;">
+                                    <label for="cooking">Cooking hours/day:</label>
+                                    <input type="text" class="form-control" id="cooking" name="cooking">
+                                </div>
+                                <div class="form-group">
+                                    <label for="light">Light activities hours/day:</label>
+                                    <input type="text" class="form-control" id="light" name="light">
+                                    <p>Like: eating washing cooking</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="moderate">Moderate activities hours/day:</label>
+                                    <input type="text" class="form-control" id="moderate" name="moderate">
+                                    <p>Like: walking, dish washing, cleaning</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sport">Sport hours/day:</label>
+                                    <input type="text" class="form-control" id="sport" name="sport">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="sportDays">Sport how many days/week?:</label>
+                                    <input type="text" class="form-control" id="sportDays" name="sportDays">
+                                </div>
+                                <h4>What do you want?</h4>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="program" id="gain" value="gain">
+                                    <label class="form-check-label" for="gain">Gain Weight</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="program" id="loss" value="loss">
+                                    <label class="form-check-label" for="loss">Loss Weight</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="program" id="maintain"
+                                        value="maintain">
+                                    <label class="form-check-label" for="maintain">Maintain Weight</label>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-info ">
+                                        Done
+                                    </button>
+                                </div>
+
+
+                            </form>
+                        </div>
+                        <div id="fast" style="display: none;">
+                            <form action="/physicalActivity" method="POST">
+                                <input type="text" name="fastOrAccurate" id="fastOrAccurate" value="second"
+                                    style="display: none;">
+                                <div class="form-check">
+                                    <label class="label" for="sedentary">
+                                        Sedentary lifestyle:
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="lifestyle" id="sedentary"
+                                        value="sedentary">
+                                    <p>Sedentary lifestyle: people who stay almost all day, drive or play a musical
+                                        instrument, paint</p>
+                                </div>
+                                <div class="form-check">
+                                    <label class="label" for="light">
+                                        Light lifestyle:
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="lifestyle" id="light"
+                                        value="light">
+                                    <p>Light activity: people who move from time to time, such as teachers during the
+                                        teaching activity, housekeeping, childcare, sailing.</p>
+                                </div>
+                                <div class="form-check">
+                                    <label class="label" for="normal">
+                                        Moderate lifestyle:
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="lifestyle" id="normal"
+                                        value="moderate">
+                                    <p>Moderate activity: people engaged in voluntary physical activity, as well as an
+                                        hour of walking fast than four or five times a week or other professions that
+                                        include physical work, spraying the garden, carrying a weight over a certain
+                                        distance, recreational activities - cycling , skiing, tennis, dancing. </p>
+                                </div>
+                                <div class="form-check">
+                                    <label class="label" for=" Activ">
+                                        Intense lifestyle:
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="lifestyle" id=" Activ"
+                                        value="intense">
+                                    <p>Intense activity: people whose work requires physical effort, carpenter,
+                                        fast-paced jogging or running, digging, basketball, etc.</p>
+                                </div>
+                                <div class="form-check">
+                                    <label class="label" for="intensiv">
+                                        Exceptional lifestyle:
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="lifestyle" id="intensiv"
+                                        value="exceptional">
+                                    <p>Exceptional activity: performance athletes, e.g. athletes.</p>
+                                </div>
+                                <h4>What do you want?</h4>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="program" id="gain" value="gain">
+                                    <label class="form-check-label" for="gain">Gain Weight</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="program" id="loss" value="loss">
+                                    <label class="form-check-label" for="loss">Loss Weight</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="program" id="maintain"
+                                        value="maintain">
+                                    <label class="form-check-label" for="maintain">Maintain Weight</label>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-info ">
+                                        Done
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="progressbar-wrapper col-6 offset-sm-2 mb-5">
+                <ul class="progressbar">
+                    <li class="active">Register</li>
+                    <li class="active">User Information</li>
+                    <li class="active">Physical Activities</li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>

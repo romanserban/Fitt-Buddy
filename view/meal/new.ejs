@@ -1,0 +1,50 @@
+<% layout('layout/page')%>
+    <div class="row">
+        <h1 class="text-center" style="color: white;">New Meal/Snack</h1>
+        <div class="col-6 offset-3">
+            <form action="/meal" method="POST" class="validated-form" novalidate style="color: white;">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="meal[name]" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="calories">Calories</label>
+                    <input class="form-control" type="text" id="calories" name="meal[calories]" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="carbs">Carbs</label>
+                    <input class="form-control" type="text" id="carbs" name="meal[carbs]" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="fats">Fats</label>
+                    <input class="form-control" type="text" id="fats" name="meal[fats]" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="protein">Proteins</label>
+                    <input class="form-control" type="text" id="protein" name="meal[protein]" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Add</button>
+                </div>
+            </form>
+            <a class="btn" href="/tracking" style="color: whitesmoke;">
+                <- Back</a>
+        </div>
+
+    </div>

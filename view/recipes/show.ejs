@@ -1,0 +1,100 @@
+<% layout('layout/page')%>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card mb-3">
+
+                <img src="<%= recipe.image %>" class="card-img-top" style="max-height: 400px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= recipe.name%>
+                    </h5>
+                    <p class="card-text">
+                        <%= recipe.description%>
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Recipe by: <%= recipe.author.username%>
+                    </li>
+                    <li class="list-group-item text-muted">Calories:<%= recipe.calories%>
+                    </li>
+                    <li class="list-group-item text-muted">Carbs:<%= recipe.carbs%>
+                    </li>
+                    <li class="list-group-item text-muted">Fats:<%= recipe.fats%>
+                    </li>
+                    <li class="list-group-item text-muted">Protein:<%= recipe.protein%>
+                    </li>
+                </ul>
+                <% if(currentUser && currentUser==recipe.author._id) {%>
+                    <div class="card-body">
+                        <a class="card-link btn btn-info" href="/recipes/<%= recipe._id %>/edit">Edit</a>
+                        <form class="d-inline" action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+        <div class="col-6">
+            <% if(currentUser && currentUser!=recipe.author._id) {%>
+                <h3>Leave a review:</h3>
+                <form class="mb-3 validated-form" action="/recipes/<%= recipe._id %>/reviews" method="POST" novalidate>
+                    <div class="mb-3"">
+                    <label class=" form-label" for="rating">
+                        <h3>Rate this recipe:</h3>
+                        </label>
+                        <fieldset class="starability-basic">
+                            <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0"
+                                checked aria-label="No rating." />
+                            <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                            <label for="first-rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                            <label for="first-rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                            <label for="first-rate3" title="Average">3 stars</label>
+                            <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                            <label for="first-rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                            <label for="first-rate5" title="Amazing">5 stars</label>
+                        </fieldset>
+                        <label class="form-label" for='body'>Review</label>
+                        <textarea class="form-control" name="review[body]" id="body" cols="2" rows="2"
+                            required></textarea>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <button class="btn btn-info">Submit review</button>
+                </form>
+                <% } %>
+                    <% if(!recipe.reviews.length){ %>
+                        <h4>No reviews yet</h4>
+                        <% }else { %>
+
+                            <h4>Reviews:</h4>
+                            <% for (let r of recipe.reviews) { %>
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <h3>Rated by <%= r.author.username %>
+                                            </h3>
+                                            <p class="starability-result" data-rating="<%= r.rating%>">
+                                                Rated: <%= r.rating%> stars
+                                            </p>
+                                        </h5>
+                                        <p>
+                                            <%= r.body %>
+                                        </p>
+                                        <% if(currentUser && currentUser==r.author._id) {%>
+                                            <form action="/recipes/<%=recipe._id%>/reviews/<%=r._id%>?_method=DELETE"
+                                                method="POST">
+                                                <button class="btn btn-danger ">Delete</button>
+                                            </form>
+                                            <% } %>
+                                    </div>
+
+                                </div>
+
+                                <% }} %>
+        </div>
+    </div>

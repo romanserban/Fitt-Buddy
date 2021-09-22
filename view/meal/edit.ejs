@@ -1,0 +1,56 @@
+<% layout('layout/page')%>
+    <div class="row">
+        <h1 class="text-center" style="color: white;">Edit Meal/Snack</h1>
+        <div class="col-6 offset-3">
+            <form action="/meal/<%= meal._id %>?_method=PUT " method="POST" class="validated-form" novalidate
+                style="color: white;">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="meal[name]" required
+                        value="<%= meal.name %> ">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="calories">Calories</label>
+                    <input class="form-control" type="text" id="calories" name="meal[calories]" required
+                        value="<%= meal.calories %> ">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="carbs">Carbs</label>
+                    <input class="form-control" type="text" id="carbs" name="meal[carbs]" required
+                        value="<%= meal.carbs %> ">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="fats">Fats</label>
+                    <input class="form-control" type="text" id="fats" name="meal[fats]" required
+                        value="<%= meal.fats %> ">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="protein">Proteins</label>
+                    <input class="form-control" type="text" id="protein" name="meal[protein]" required
+                        value="<%= meal.protein %> ">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Add</button>
+                </div>
+            </form>
+            <a class="btn" href="/tracking" style="color: whitesmoke;">
+                <- Back</a>
+        </div>
+
+    </div>

@@ -1,0 +1,65 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Fit-Buddy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <% if (!currentUser) {%>
+                    <a class="nav-link" href="/recipes">Recipes</a>
+                    <a class="nav-link" href="/exercises">Exercises</a>
+
+                    <% }else{ %>
+                        <a class="nav-link" href="/tracking">Tracking</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Recipes
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/recipes">All Recipes</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/recipes/new">New Recipes</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/recipes/myrecipes">My Recipes</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Exercises
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/exercises">Exercises</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/exercises/new">New exercises</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/exercises/myExercises">My exercises</a></li>
+                            </ul>
+                        </li>
+                        <% } %>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <% if (!currentUser) {%>
+                    <a class="nav-link" href="/register" style="color:white">Register</a>
+                    <a class="nav-link" href="/login" style="color:white">Login</a>
+                    <% }else{ %>
+                        <a class="nav-link" href="/profile/<%=currentUser%>" style="color:white"> Hello
+                            <%=username%>
+                        </a>
+                        <a class="nav-link" href="/logout" style="color:white">Logout</a>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</nav>

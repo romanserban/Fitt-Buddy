@@ -1,0 +1,57 @@
+<% layout('layout/page')%>
+
+    <h1>All recipes</h1>
+    <ul>
+        <% for (let r of recipes) { %>
+
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img class="img-fluid card-img-top" src="<%=r.image%>" style="max-height: 350px;">
+                    </div>
+                    <div class=" col-md-7">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= r.name %> by <%=r.author.username %>
+                            </h5>
+                            <hr>
+                            <p class="card-text">
+                                Calories: <%= r.calories %>
+                            </p>
+                            <p class="card-text">
+                                Proteins: <%= r.protein %>
+                            </p>
+                            <p class="card-text">
+                                Carbs: <%= r.carbs %>
+                            </p>
+                            <p class="card-text">
+                                Fats: <%= r.fats %>
+                            </p>
+                            <div class="d-flex justify-content-start">
+                                <a class="btn btn-primary m-1" href="/recipes/<%=r._id%>">See
+                                    Recipe
+                                </a>
+                                <% if(currentUser) {%>
+                                    <form action="/meal/add" method="POST">
+                                        <input type="text" value="<%= r.name %> " name="meal[name]"
+                                            style="display: none;">
+                                        <input type="text" value="<%= r.calories %> " name="meal[calories]"
+                                            style="display: none;">
+                                        <input type="text" value="<%= r.carbs %> " name="meal[carbs]"
+                                            style="display: none;">
+                                        <input type="text" value="<%= r.fats %> " name="meal[fats]"
+                                            style="display: none;">
+                                        <input type="text" value="<%= r.protein %> " name="meal[protein]"
+                                            style="display: none;">
+                                        <button class="btn btn-primary m-1">Add to your meal</button>
+                                    </form>
+                                    <% } %>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+    </ul>

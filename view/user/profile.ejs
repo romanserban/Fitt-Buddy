@@ -1,0 +1,21 @@
+<% layout('layout/page')%>
+
+    <div class="row">
+        <div class="container col-8">
+            <div class="card shadow" ">
+                <div class=" card-body">
+                <h4 class="card-title">My profile:</h4>
+                <p>My username: <%= user.username %>
+                </p>
+                <p>My email: <%= user.email %>
+                </p>
+                <p>Age: <%=age %>
+                </p>
+                <a class="btn btn-primary" href="/changePassword/<%=user._id%>">Change password</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>

@@ -1,0 +1,47 @@
+<% layout('layout/page')%>
+    <div class="row mb-3">
+        <h1 class="text-center">Edit Recipe</h1>
+        <div class="col-6 offset-3">
+            <form action="/recipes/<%= recipe._id %>?_method=PUT " method="POST" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="recipe[name]" value="<%= recipe.name %>"
+                        required>
+                </div>
+                <div class=" mb-3">
+                    <label class="form-label" for="calories">Calories</label>
+                    <input class="form-control" type="text" id="calories" name="recipe[calories]"
+                        value="<%= recipe.calories %>">
+                </div>
+                <div class=" mb-3">
+                    <label class="form-label" for="carbs">Carbs</label>
+                    <input class="form-control" type="text" id="carbs" name="recipe[carbs]" value="<%= recipe.carbs %>"
+                        required>
+                </div>
+                <div class=" mb-3">
+                    <label class="form-label" for="fats">Fats</label>
+                    <input class="form-control" type="text" id="fats" name="recipe[fats]" value="<%= recipe.fats %>"
+                        required>
+                </div>
+                <div class=" mb-3">
+                    <label class="form-label" for="proteins">Proteins</label>
+                    <input class="form-control" type="text" id="proteins" name="recipe[protein]"
+                        value="<%= recipe.protein %>" required>
+                </div>
+                <div class=" mb-3" style="display: none;">
+                    <label class="form-label" for="image">Image</label>
+                    <input class="form-control" type="text" id="image" name="recipe[image]" value=" <%=recipe.image %> "
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="recipe[description]" rows="4"
+                        cols="4" required><%= recipe.description %></textarea>
+                </div>
+                <div class=" mb-3">
+                    <button class="btn btn-success">Save Recipe</button>
+                </div>
+            </form>
+            <a href="/recipes/<%=recipe._id%>">Back to the recipe</a>
+        </div>
+    </div>

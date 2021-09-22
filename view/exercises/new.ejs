@@ -1,0 +1,34 @@
+<% layout('layout/page')%>
+    <div class="row">
+        <h1 class="text-center">New Exercises</h1>
+        <div class="col-6 offset-3">
+            <form action="/exercises/new" method="POST" class="validated-form" novalidate>
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="exercise[name]" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="category">Category</label>
+                    <input class="form-control" type="text" id="category" name="exercise[category]" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description of the exercise</label>
+                    <textarea class="form-control" type="text" id="description" name="exercise[description]"
+                        name="exercise[description]" rows="4" cols="4" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success">Add exercise</button>
+                </div>
+            </form>
+            <a class="btn" href="/exercises">All Exercises</a>
+        </div>
+    </div>

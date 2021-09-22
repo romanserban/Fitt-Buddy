@@ -1,0 +1,80 @@
+<% layout('layout/page')%>
+    <div class="container d-flex justify-content-center align-items-center mt-5">
+        <div class="row">
+            <div class=" col-md-6 offset-md-3 col-xl-6 offset-xl-3 mb-5">
+                <div class=" card shadow">
+                    <div class="card-body">
+                        <h2 class="card-title">More information about you:</h2>
+                        <form action="/userInfo" method="POST" class="validated-form" novalidate>
+                            <div class="mb-3">
+                                <label class="form-label" for="weight">Weight:</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="weight" name="moreInfo[weight]"
+                                        aria-describedby="basic-addon2" required>
+                                    <span class="input-group-text" id="basic-addon2">kg</span>
+                                </div>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="height">Height</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="height" name="moreInfo[height]"
+                                        aria-describedby="basic-addon2" required>
+                                    <span class="input-group-text" id="basic-addon2">cm</span>
+                                </div>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="bday">Date of Birth:</label>
+                                <input class="form-control" type="date" id="bday" name="moreInfo[bday]" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <label class="form-label" for="gender">Gender:</label>
+                            <div class="mb-3">
+                                <div class="form-check form-check-inline" style="color:blue">
+                                    <input class="form-check-input" type="radio" name="moreInfo[gender]" id="male"
+                                        value="male" checked>
+                                    <label class="form-check-label" for="male">
+                                        Male
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline" style="color:blue">
+                                    <input class="form-check-input" type="radio" name="moreInfo[gender]" id="female"
+                                        value="female">
+                                    <label class="form-check-label" for="female">
+                                        Female
+                                    </label>
+                                </div>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-info ">
+                                    Next Step
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="progressbar-wrapper col-6 offset-sm-2 mb-5">
+                <ul class="progressbar">
+                    <li class="active">Register</li>
+                    <li class="active">User Information</li>
+                    <li>Physical Activities</li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
